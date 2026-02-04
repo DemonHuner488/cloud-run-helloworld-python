@@ -1,0 +1,11 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+
+# Certs/keys (no subir privados)
+infra/certs/*
