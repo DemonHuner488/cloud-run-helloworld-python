@@ -29,3 +29,6 @@ substitutions:
   _AR_REPO: webapp
   _SERVICE: webapp
   _RUN_SA_EMAIL: cr-webapp-sa@domina-test.iam.gserviceaccount.com
+
+options:
+  logging: CLOUD_LOGGING_ONLY
