@@ -1,0 +1,22 @@
+cat > infra/terraform.tfvars.example <<'HCL'
+project_id = "REEMPLAZA"
+region     = "us-central1"
+
+cloud_run_service_name = "webapp"
+blocked_ip_cidr        = "1.2.3.4/32"
+
+custom_run_admin_permissions = [
+  "run.services.get",
+  "run.services.list",
+  "run.services.create",
+  "run.services.update",
+  "run.services.delete",
+  "run.revisions.get",
+  "run.revisions.list",
+  "run.routes.get",
+  "run.routes.list",
+  "run.operations.get",
+  "run.operations.list"
+]
+HCL
+
