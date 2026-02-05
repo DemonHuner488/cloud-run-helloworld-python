@@ -3,13 +3,13 @@ steps:
     args:
       - build
       - -t
-      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_SERVICE}:$COMMIT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_SERVICE}:$SHORT_SHA'
       - .
 
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_SERVICE}:$COMMIT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_SERVICE}:$SHORT_SHA'
 
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     entrypoint: gcloud
@@ -17,7 +17,7 @@ steps:
       - run
       - deploy
       - '${_SERVICE}'
-      - '--image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_SERVICE}:$COMMIT_SHA'
+      - '--image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_SERVICE}:$SHORT_SHA'
       - '--region=${_REGION}'
       - '--platform=managed'
       - '--allow-unauthenticated'
@@ -28,4 +28,4 @@ substitutions:
   _REGION: us-central1
   _AR_REPO: webapp
   _SERVICE: webapp
-  _RUN_SA_EMAIL: cr-webapp-sa@$PROJECT_ID.iam.gserviceaccount.com
+  _RUN_SA_EMAIL: cr-webapp-sa@domina-test.iam.gserviceaccount.com
