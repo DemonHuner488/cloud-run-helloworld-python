@@ -26,3 +26,12 @@ def hello_world():
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
+@app.route("/")
+def home():
+    return """
+    <html>
+      <body>
+        <h1>¡Bienvenido a la prueba técnica de GCP!</h1>
+      </body>
+    </html>
+    """
